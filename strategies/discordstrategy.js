@@ -3,7 +3,7 @@ const passport = require('passport')
 const DiscordUser = require('../models/DiscordUser')
 require('dotenv').config()
 
-const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_ID = "1082313953788559360"
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 const CLIENT_REDIRECT = process.env.CLIENT_REDIRECT
 
@@ -18,9 +18,9 @@ passport.deserializeUser(async (id, done) => {
 })
 
 passport.use(new DiscordStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: process.env.CLIENT_REDIRECT,
+    clientID: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    callbackURL: CLIENT_REDIRECT,
     scope: ["identify", "email", "guilds", "guilds.join"]
 }, async (accesToken, refreshToken, profile, done) => {
     try {
